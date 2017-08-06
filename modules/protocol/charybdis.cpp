@@ -334,9 +334,12 @@ class ProtoCharybdis : public Module
 		ModeManager::AddChannelMode(new ChannelMode("ALLINVITE", 'g'));
 		ModeManager::AddChannelMode(new ChannelModeParam("JOINFLOOD", 'j'));
 		ModeManager::AddChannelMode(new ChannelModeLargeBan("LBAN", 'L'));
-		ModeManager::AddChannelMode(new ChannelMode("PERM", 'P'));
+		ModeManager::AddChannelMode(new ChannelModeOperOnly("PERM", 'P'));
 		ModeManager::AddChannelMode(new ChannelMode("NOFORWARD", 'Q'));
 		ModeManager::AddChannelMode(new ChannelMode("OPMODERATED", 'z'));
+		ModeManager::AddChannelMode(new ChannelMode("NONOTICE", 'T'));
+		ModeManager::AddChannelMode(new ChannelModeOperOnly("OPERONLY", 'O'));
+		ModeManager::AddChannelMode(new ChannelModeOperOnly("ADMINONLY", 'A'));
 	}
 
  public:
