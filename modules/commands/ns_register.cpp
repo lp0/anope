@@ -46,7 +46,7 @@ class CommandNSConfirm : public Command
 				{
 					User *u = *it;
 
-					IRCD->SendLogin(u, na);
+					IRCD->SendLogin(u, na->nc);
 
 					NickAlias *u_na = NickAlias::Find(u->nick);
 
@@ -73,7 +73,7 @@ class CommandNSConfirm : public Command
 					NickAlias *na = NickAlias::Find(source.GetNick());
 					if (na)
 					{
-						IRCD->SendLogin(source.GetUser(), na);
+						IRCD->SendLogin(source.GetUser(), na->nc);
 						if (!Config->GetModule("nickserv")->Get<bool>("nonicknameownership") && na->nc == source.GetAccount() && !na->nc->HasExt("UNCONFIRMED"))
 							source.GetUser()->SetMode(source.service, "REGISTERED");
 					}
