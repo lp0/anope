@@ -76,8 +76,13 @@ class CommandCSUnban : public Command
 		}
 
 		User *u2 = source.GetUser();
-		if (params.size() > 1)
+		if (params.size() > 1) {
+			if (!source.IsOper()) {
+				source.Reply(ACCESS_DENIED);
+				return;
+			}
 			u2 = User::Find(params[1], true);
+		}
 
 		if (!u2)
 		{
